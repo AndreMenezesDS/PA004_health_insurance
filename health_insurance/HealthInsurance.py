@@ -1,4 +1,5 @@
 import pickle
+import inflection
 import numpy as np
 import pandas as pd
 
@@ -16,10 +17,20 @@ class HealthInsurance:
         self.te_channel_scaler =        pickle.load(open(self.home_path + 'src/features/te_channel_scaler.pkl', 'rb'))
 
     def data_cleaning(self, df1):
-        #data formating/cleaning
+    #     #data formating/cleaning
+    #     cols_old = ['id', 'Gender', 'Age', 'Driving_License', 'Region_Code',
+    #    'Previously_Insured', 'Vehicle_Age', 'Vehicle_Damage', 'Annual_Premium',
+    #    'Policy_Sales_Channel', 'Vintage']
+        
+    #     # renomeando colunas
+    #     snakecase = lambda x: inflection.underscore(x)
+    #     cols_new = list(map(snakecase, cols_old))
+    #     df1.columns = cols_new
+
         df1['region_code'] = df1['region_code'].astype(np.int64)
         df1['policy_sales_channel'] = df1['policy_sales_channel'].astype(np.int64)
         df1['vehicle_damage'] = df1['vehicle_damage'].apply(lambda x: 1 if x == 'Yes' else 0)
+    #    df1 = df1.drop('gender', axis=1)
 
         return df1
 
@@ -108,24 +119,6 @@ class HealthInsurance:
         #vintage_per_age
         df4['vintage_per_age'] = self.mms_vintage_age_scaler.transform(df4[['vintage_per_age']].values)
 
-        ##annual_premium
-        #df4['annual_premium'] = (df4['annual_premium'] - df4['annual_premium'].mean()) / df4['annual_premium'].std()
-
-        ##annual_premium_per_day
-        #df4['annual_premium_per_day'] = (df4['annual_premium_per_day'] - df4['annual_premium_per_day'].mean()) / df4['annual_premium_per_day'].std()
-
-        ##annual_premium_per_age
-        #df4['annual_premium_per_age'] = (df4['annual_premium_per_age'] - df4['annual_premium_per_age'].mean()) / df4['annual_premium_per_age'].std()
-
-        ##age
-        #df4['age'] = (df4['age'] - df4['age'].min()) / (df4['age'].max() - df4['age'].min())
-
-        ##vintage
-        #df4['vintage'] = (df4['vintage'] - df4['vintage'].min()) / (df4['vintage'].max() - df4['vintage'].min())
-
-        ##vintage_per_age
-        #df4['vintage_per_age'] = (df4['vintage_per_age'] - df4['vintage_per_age'].min()) / (df4['vintage_per_age'].max() - df4['vintage_per_age'].min())
-
         #region_code - Frequency Encoding
         df4.loc[:, 'region_code'] = df4['region_code'].map(self.fe_region_scaler)
 
@@ -136,14 +129,9 @@ class HealthInsurance:
         #vehicle_age - One Hot Encoding
         df4 = pd.get_dummies(df4, prefix='vehicle_age', columns=['vehicle_age'])
 
-        #cols_selected = [ 'annual_premium_per_day', 'vintage_per_age', 'vintage',
-        #                  'annual_premium_per_age', 'annual_premium', 'age',
-        #                  'vehicle_damage', 'region_code', 'policy_sales_channel',
-        #                  'scored_sales_channel', 'region_score', 'vehicle_age_score']
+        cols_selected = ['age', 'vehicle_age_score', 'vehicle_damage', 'previously_insured',
+                         'policy_sales_channel', 'scored_sales_channel', 'region_score']
 
-        cols_selected = ['vintage', 'annual_premium', 'age', 'region_code', 
-                         'vehicle_damage', 'policy_sales_channel', 'previously_insured']
-        
         return df4[cols_selected]
 
     def get_prediction(self, model, original_data, test_data):
