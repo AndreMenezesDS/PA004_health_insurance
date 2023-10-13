@@ -6,14 +6,14 @@
   
 </div>
 
-_A demonstração detalhada do código pode ser encontrada [neste link.](!https://github.com/AndreMenezesDS/PA004_health_insurance/blob/92736f1f26bbcea4a8e196e28258d2167bb19902/PA004_notebook.ipynb)_
+_A demonstração detalhada do código pode ser encontrada [neste link.](https://github.com/AndreMenezesDS/PA004_health_insurance/blob/92736f1f26bbcea4a8e196e28258d2167bb19902/PA004_notebook.ipynb)_
 
 # 1.0. RESUMO
 
 ___
 
 Insurance All Co. é uma empresa que trabalha com venda de assinaturas referentes à planos de seguridade, com especialização no setor da saúde.
-Um seguro (plano) de saúde é um contrato o qual a empresa se compromete a prover compensações financeiras em casos de doenças, dano específico ou morte por parte do contratante, sob o retorno do pagamento de um prêmio pré-especificado. Esse prêmio é a soma em dinheiro que o cliente deve pagar regularmente para a empresa para ter direito ao serviço.
+Um seguro de saúde é um contrato o qual a empresa se compromete a prover compensações financeiras em casos de doenças, dano específico ou morte por parte do contratante, sob o retorno do pagamento de um prêmio pré-especificado. Esse prêmio é a soma em dinheiro que o cliente deve pagar regularmente para a empresa para ter direito ao serviço.
 Visando aumentar a rentabilidade do serviço e a fidelidade de adesão de seus clientes, a empresa analisa a possibilidade de oferecer um novo produto: A _venda cruzada (cross-selling)_ dos seguros de saúde já ofertados em conjunto com a aquisição de planos de seguridade de automóvel, motivando a contratação de um cientista de dados para auxiliar o time de negócios no curso da implementação dessa nova proposta.
 
 __*Este é um projeto fictício. A empresa, o contexto e as perguntas de negócios não são reais.__
@@ -47,7 +47,7 @@ ____
 
 ## 3.1 Descrição do Problema
 
-A empresa, em vias de expandir seu ramo de atuação, tomou a decisão de oferecer a venda cruzada de um novo produto: seguro veícular. Para estudar a viabilidade dessa proposta, a companhia conduziu pesquisas com seus clientes que contraram o seguro de saúde, armazendo os dados obtidos em servidor particular.
+A empresa, em vias de expandir seu ramo de atuação, tomou a decisão de oferecer a venda cruzada de um novo produto: seguro veícular. Para estudar a viabilidade dessa proposta, a companhia conduziu pesquisas com seus clientes que contrataram o seguro de saúde, armazendo os dados obtidos em servidor particular.
 
 O time de negócios irá trabalhar de acordo com uma estratégia de otimização sobre à oferta do novo produto (Seguro de automóvel) para os atuais clientes detentores de seguro de saúde.
 Este processo será feito mediante os insights obtidos da análise dos perfis/comportamentos observados nos dados das pessoas presentes no banco da empresa, direcionados através da resposta às seguintes perguntas de negócio:
@@ -76,9 +76,6 @@ A imagem a seguir mostra a simplicidade de funcionamento da aplicação:
 
 </div>
 
-A escolha do Google Sheets como ferramenta de visualização deve-se principalmente à sua facilidade de integração ao cotidiano de negócios, uma vez que trata-se de um webapp que não depende de qualquer instalação prévia para uso.
-Consequentemente, isso fornece ao time de negócios grande escalabilidade para solução dessa ordem de problema, além de convenientemente servir como um simulador em tempo real para testagem de previsões conforme alteração de valores das variáveis presentes.
-
 ## 3.3 Premissas de Negócio
 
 * Clientes que possuem seguro de saúde podem ter interesse na compra casada com um seguro automotivo.
@@ -86,7 +83,7 @@ Consequentemente, isso fornece ao time de negócios grande escalabilidade para s
 * A aprendizagem obtida pela venda cruzada pode tornar-se uma estratégia horizontal para a empresa em seu mercado atuante.
 * Um modelo de aprendizagem de máquina _(Machine Learning)_ de rankeamento de clientes mais prováveis a aquisição de seguro veícular vai otimizar o rendimento do time de negócios de forma a viabilizar a entrada da empresa nesse novo setor.
 
-# 4.0. DESCRIÇÃO Dos DADOS
+# 4.0. DESCRIÇÃO DOS DADOS
 
 ___
 
@@ -141,7 +138,7 @@ Dos dados categóricos(object), foi realizada a alteração de 'vehicle_damage' 
 
 ## 4.4 Análise Preliminar
 
-< div align="center">
+<div align="center">
 
 ![Análise Preliminar](img/preliminar_analysis.png "Análise Preliminar dos dados numéricos")
 
@@ -169,7 +166,7 @@ _Verdadeiro: Há maior proporção de clientes entre 40~50 anos de idade que dem
 **Hipótese 6: Clientes com veículos mais velhos são 10% mais propensos a adquirir seguro veícular.**
 _Verdadeiro: Clientes com veículos mais velhos apresentam, proporcionalmente, maior interesse na aquisição de seguro veícular._
 
-![H6 Vehicle Age](img/h1_vehicle_age.png "Hipótese 6")
+![H6 Vehicle Age](img/h6_vehicle_age.png "Hipótese 6")
 
 **Hipótese 7: Clientes que apresentam veículo danificado são 10% mais propensos a aquisição de um seguro veícular.**
 _Verdadeiro: Clientes com veículos danificados apresentam, proporcionalmente, maior interesse na aquisição de seguro veícular._
@@ -190,9 +187,9 @@ Foram criados novos atributos previsores (features) a partir da combinação de 
 Essas features, obtidos através da divisão de um valor pelo outro foram: _'annual_premium_per_day', 'annual_premium_per_age', 'vintage_per_age'_.
 
 Também foram criados features através do estabelecimento de uma pontuação as classes existentes em cada váriavel conforme suas proporções de pessoas interessadas na compra de veículos.
-Essas features são: _'scored_sales_channel'_ (Relaciona os canais com maior proporção de interessados), _'region_score'_ (Relaciona regiões(código) com maior proporção de interessados) e _'vehicle_age'_(Atribui maior peso à idade de veículos que possuem maior proporção de interessados)
+Essas features são: _'scored_sales_channel'_ (Relaciona os canais de contato com maior proporção de interessados), _'region_score'_ (Relaciona regiões(código) com maior proporção de interessados) e _'vehicle_age'_(Atribui maior peso à idade de veículos que possuem maior proporção de interessados)
 
-* Maiores detalhes sobre a criação de cada feature pode ser vista no [notebook do projeto.](!!https://github.com/AndreMenezesDS/PA004_health_insurance/blob/92736f1f26bbcea4a8e196e28258d2167bb19902/PA004_notebook.ipynb)
+* Maiores detalhes sobre a criação de cada feature podem ser vistos no [notebook do projeto.](!!https://github.com/AndreMenezesDS/PA004_health_insurance/blob/92736f1f26bbcea4a8e196e28258d2167bb19902/PA004_notebook.ipynb)
 
 ### 4.6.2 Análise Multivariada de Dados
 
@@ -200,7 +197,7 @@ O resultado final da análise de correlação das variáveis entre si e a variá
 
 <div align="center">
 
-![EDA_results](img/multivariative_analysis "EDA results")
+![EDA_results](img/multivariative_analysis.png "EDA results")
 
 </div>
 
@@ -209,7 +206,11 @@ O resultado final da análise de correlação das variáveis entre si e a variá
 # 5.0. PREPARAÇÃO DOS DADOS
 ____
 
-## 5.1 Pré Processamento
+## 5.1 Separação dos dados (Treino/Teste)
+
+De forma a viabilizar o aprendizado do algoritmo e sua subsequente testagem para capacidade de generalização, foi adotado um percentual de 20% (76222 amostras) dos dados originais como sendo dados teste; os 80% restantes (304888 amostras) portanto, destinados ao treinamento do modelo.
+
+## 5.2 Pré Processamento
 
 A maioria de modelos de aprendizagem de máquina exigem a preparação prévia dos dados de forma que os modelos possam trabalhar de acordos com seus padrões pré-determinados. Variáveis contínuas devem possuir uma distruibuição tão próxima da normal quanto for possível, e variáveis categóricas representadas por texto devem ser substituídas por números.
 Existem muitas formas de pré processamento de dados, tais como padronização (_standardization_), reescala(_reescaling_) e codificação(_encoding_). Para as variáveis de nossa base de dados, foram adotadas as seguintes técnicas:
@@ -219,9 +220,9 @@ Existem muitas formas de pré processamento de dados, tais como padronização (
 * region_code: [Frequency Encoding](!https://datascience.stackexchange.com/questions/63749/why-does-frequency-encoding-work#:~:text=Frequency%20encoding%20is%20a%20widely,categorical%20features%20with%20high%20cardinality.)
 * policy_sales_channel: [Mean Target Encoding](!https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.TargetEncoder.html)
 
-## 5.2 Escolha Final das Variáveis para Aplicação no Modelo
+## 5.3 Escolha Final das Variáveis para Aplicação no Modelo
 
-Paralelamenta à análise feita via Análise Exploratória de Dados (EDA), foram aplicadas todas as variáveis preditoras à um modelo de [Random Forest](!https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html) com o objetivo de obter quais os features servem como estimadores mais importantes para a classificação da propensão de compra de um cliente. 
+Paralelamente à análise feita via Análise Exploratória de Dados (EDA), foram aplicadas todas as variáveis preditoras à um modelo de [Random Forest](!https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html) com o objetivo de obter quais os features servem como estimadores mais importantes para a classificação da propensão de compra de um cliente. 
 
 ![Balanced Random Forest estimators](img/rf_estimators.png "Balanced Random Forest Estimators")
 
@@ -236,28 +237,129 @@ Os resultados da seleção de váriaveis foram:
 * Via Random Forest: vehicle_damage, previously_insured, policy_sales_channel, age, scored_sales_channel, vehicle_age_score
 * **TOTALIZANDO**: age, vehicle_age_score, vehicle_damage, previously_insured, policy_sales_channel, scored_sales_channel, region_score
 
-Mais detalhes no [notebook do projeto.](!!https://github.com/AndreMenezesDS/PA004_health_insurance/blob/92736f1f26bbcea4a8e196e28258d2167bb19902/PA004_notebook.ipynb)
+Mais detalhes no [Notebook do projeto.](!!https://github.com/AndreMenezesDS/PA004_health_insurance/blob/92736f1f26bbcea4a8e196e28258d2167bb19902/PA004_notebook.ipynb)
 
 # 6.0. MODELAGEM DOS DADOS
  ___
+ 
+Foram testados 5 modelos de aprendizagem de máquina, lançando mão da técnica de validação cruzada (K-fold, k=4):
+
+* Modelo base fícticio (base de comparação inicial, afim de observar o resultado obtido quando da não aplicação de um modelo - escolha e realização de clientes de modo aleatório)
+* Modelo KNN
+* Modelo de Regressão Logística
+* Modelo XGBoost
+* Modelo LGB
+
+Os modelos de KNN e Regressão Logística foram realizados de forma a obter entendimento do comportamento do fênomeno estudado em um rankeamento para classificação binária. Adiante, comparou-se modelos baseados em florestas de decisão(XGBoost e LGBM) para obtenção dos melhores resultados considerando a posição 20000 do rankeamento:
+
+<div align='center'>
+
+![Resultados dos Modelos](img/ml_results.png "Resultados dos Modelos")
+
+</div>
+
+O modelo escolhido por apresentar as melhores métricas de interesse (Recall@k e F1_score@k) foi o XGBoost.
 
 # 7.0. AVALIAÇÃO DOS RESULTADOS
  ___
  
-# 8.0. APLICAÇÃO DO MODELO EM PRODUÇÃO
- ___
+ ## 7.1 Resultados Gerais
  
-# 9.0 CONCLUSÕES
+ Após o processo de tunning dos parâmetros, os resultados foram (para posição k=20000 em ranking):
+ 
+<div align='center'>
+
+![Resultados Finais](img/model_final_results.png "Resultados Finais")
+
+</div>
+
+* Curva de Ganho Cumulativo
+
+<div align='center'>
+
+![Curva de Ganho Cumulativo](img/cumulative_gain_final.png "Curva de Ganho Cumulativo")
+
+</div>
+
+A curva de ganho cumulativo mostra a relação entre a porcentagem de amostras recuperadas de uma determinada classe (eixo y) em relação a porcentagem total do número de amostras (eixo x). Dessa forma, numa situação ideal,o quão mais próximo a curva se aproxima do canto superior esquerdo do gráfico, melhor a eficiência do nosso algoritmo de rankeamento (maior parcela de clientes interessados contatados para menor número de ligações).
+Pela análise do gráfico, podemos observar para nossos dados de teste (76222 amostras) e percentual total de base de aproximadamente 27% (20000 amostras), obtemos um ganho acumulado de aproximadamente 70% dentre os interessados na aquisição de seguro veícular.
+
+* Curva de Elevação (Lift Curve)
+
+<div align='center'>
+
+![Lift Curve](img/lift_curve_final.png "Curva de Elevação(Lift Curve)")
+
+</div>
+
+A curva de elevação nos mostra uma comparação entre o modelo escolhido (XGBoost) e o modelo Fictício (Escolhas aleatórias) quanto ao rendimento de amostras interessadas recuperadas para dado percentual da base de dados. (Ex: lift = 2, indica que o modelo atual é 2x melhor que o modelo base de escolhas aleatórias)
+De acordo com o observado para o nosso modelo, para um conjunto total de dados de teste com 76222 entradas, obtemos para 20000 amostras (27% da base) um rendimento de aproximadamente 2.6x melhor que o modelo de escolhas aleatórias.
+
+* Curva de Retorno de Investimento (Curva ROI)
+
+<div align='center'> 
+
+![Tabela ROI](img/roi_table.png "Tabela de Valores ROI")
+![Curva ROI](img/roi_curve.png "Curva ROI")
+
+</div>
+
+A curva de retorno de investimento é usada como estimativativa de rentabilidade para modelos de rankeamento/classificação: Com a definição inicial do custo de ligação ($4.00) e conversão média da venda de produto ($40.00), calcula-se o lucro acumulado usando a pontuação de propensão de compra (indicado na tabela acima como 'min_score') como pesos que multiplicam sobre o valor de conversão e do número de clientes. As seguintes conclusões podem ser tiradas da análise da curva ROI:
+
+* Podemos dessa forma deduzir então que, para 20000 ligações, poderemos ter um retorno de investimento esperado de aproximadamente $550000.00; 
+* Podemos também inferir que o ponto ótimo (máxima rentabilidade, com retorno de aproximadamente $869202.00) localiza-se nas dependências posição 41440(55% da base de dados de teste) do rankeamento retornado pelo modelo.
+
+## 7.2 Respondendo as Perguntas de Negócio
+
+Respondendo as perguntas de negócio propostas no início do projeto (ver seção [#3.0. PROBLEMA DE NEGÓCIO](#3-PROBLEMA-DE-NEGÓCIO)), temos:
+
+### 7.2.1 Qual o percentual de clientes interessados na aquisição de seguro automotivo? O time de negócios será capaz de contata-los com as primeiras 20000 ligações?
+*   Nossa base de dados de teste possui 76222 amostras, dos quais 9348 responderam ter interesse na aquisição de seguro veícular(response=1). Nosso modelo treinado foi capaz de recuperar um total de aproximadamente 6705 interessados, ou seja, 71,68% do total de interessados. (Recall@20000 = 71,68%)
+
+### 7.2.2 Se o time de negócios for possibilitado de fazer 40000 ligações, qual será o percentual de clientes interessados na compra de seguro automotivo impactados?
+
+<div align='center'>
+
+![Recall@40k](img/40k_results.png "Recall@40k")
+
+</div>
+
+*   Para 40000 ligações, o modelo irá recuperar virtualmente todos os interessados (9261 dentre 9348 possíveis; Recall@40000 = 99.29%).
+
+### 7.2.3 Quantas ligações serão necessárias para o time de negócios atingir 80% dos interessados?
+*   Serão necessárias aproximadamente 23500 ligações.
+ 
+# 8.0. APLICAÇÃO DO MODELO EM PRODUÇÃO
 ___
 
-# 10.0 LIÇÕES APRENDIDAS
+Para visualização dos resultados, optei pela escolha de uma ferramenta que pudesse ser facilmente integrada ao uso cotidiano do time de negócios: O Google Sheets.
+Por se tratar de uma aplicação customizável que funciona em nuvem (portanto, não requerendo instalação prévia), fiz a implementação de um botão que efetua a previsão da propensão de compra para os dados em planilha, viabilizando posteriormente sua ordenação em um ranking.
+Esse botão contém a funcionalidade responsável por fazer a requisição do modelo treinado posto em produção na web, servindo como uma API do projeto.
 
-A particularidade observada nesse problema de classificação reside no fato de seu resultado requerer métricas adequadas de análise para definir a qualidade do rankeamento, priorizada no lugar de métricas de classificação simples.
+<div align="center">
+
+![Modelo em Funcionamento](img/predict_capture.gif "Modelo em Funcionamento")
+
+</div>
+
+É importante notar como essa solução fornece grande escalabilidade ao time de negócios, impactando diretamente através de uma ferramente comumente utilizada, oferecendo até mesmo a possibilidade de ser usada como simulador em tempo real para testagem de previsões conforme alteração de valores das variáveis presentes.
+O modelo pode ser acessado em:
+
+<div align='center'>
+
+- 	[![Google Sheets](https://img.shields.io/badge/Google%20Sheets-34A853?style=for-the-badge&logo=google-sheets&logoColor=white)](https://docs.google.com/spreadsheets/d/1T2Ap-1SuH3TZgldMOfjz4re9QZG708X51u7efimerj4/edit?usp=sharing)
+
+</div>
+ 
+# 9.0 CONSIDERAÇÕES FINAIS
+___
+
+A particularidade observada nesse problema de classificação reside no fato de seu resultado requerer métricas adequadas de análise para definir a qualidade do rankeamento, sendo portanto uma adaptação de métricas de classificação simples.
 Dessa forma, todos os resultados são obtidos em função de uma posição @k das entradas de nossa base de dados. No problema, a métrica utilizada foi o top@k_recall, referente ao percentual da base recuperada pelo modelo até a posição 'k' determinada pelo usuário.
 
 ___
 
-# 11.0 PRÓXIMOS PASSOS
+# 10.0 PRÓXIMOS PASSOS
 
 ___
 
@@ -265,18 +367,21 @@ ___
 - Desenvolver/Implementar um dashboard que informe a performance do modelo e identificar seus gargalos de rendimento.
 
 
-# 12.0 Ferramentas e Técnicas Usadas (*to edit)
+# 11.0 FERRAMENTAS E TÉCNICAS UTILIZADAS
 
 ___
 
-- [Python 3.10](!https://www.python.org/downloads/release/python-380/), [Pandas](!https://pandas.pydata.org/), [Numpy](!https://numpy.org/) , [Matplotlib](!https://matplotlib.org/), [Geopandas](!https://geopandas.org/en/stable/) e [Seaborn](!https://seaborn.pydata.org/)
-- [Jupyter Notebook](!https://jupyter.org/) e [VS Code](!https://code.visualstudio.com/)
-- [Streamlit Cloud](!https://docs.streamlit.io/)
-- [Git](!https://git-scm.com/) e [GitHub](!https://github.com/)
+-   Backend & Data Science: [![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)](https://www.python.org/downloads/release/python-380/) , ![Shell Script](https://img.shields.io/badge/shell_script-%23121011.svg?style=for-the-badge&logo=gnu-bash&logoColor=white)
+-   Apresentação & Frontend : ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white) , [![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)](https://www.javascript.com/) , [![Markdown](https://img.shields.io/badge/markdown-%23000000.svg?style=for-the-badge&logo=markdown&logoColor=white)](https://www.markdownguide.org/) , [![Google Sheets](https://img.shields.io/badge/Google%20Sheets-34A853?style=for-the-badge&logo=google-sheets&logoColor=white)](https://docs.google.com/spreadsheets/d/1T2Ap-1SuH3TZgldMOfjz4re9QZG708X51u7efimerj4/edit?usp=sharing)
+-   SQL & Databases: [![Postgres](https://img.shields.io/badge/postgres-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white)](https://www.postgresql.org/)
+-  Machine Learning & Análise de Dados: [![Pandas](https://img.shields.io/badge/pandas-%23150458.svg?style=for-the-badge&logo=pandas&logoColor=white)](https://pandas.pydata.org/) , [![NumPy](https://img.shields.io/badge/numpy-%23013243.svg?style=for-the-badge&logo=numpy&logoColor=white)](https://numpy.org/) , [![Matplotlib](https://img.shields.io/badge/Matplotlib-%23ffffff.svg?style=for-the-badge&logo=Matplotlib&logoColor=black)](https://matplotlib.org/), [![scikit-learn](https://img.shields.io/badge/scikit--learn-%23F7931E.svg?style=for-the-badge&logo=scikit-learn&logoColor=white)](https://scikit-learn.org/stable/) , [![XGBoost](https://img.shields.io/badge/XGBoost-blue?style=for-the-badge)](https://xgboost.readthedocs.io/en/stable/) , [![LightGBM](https://img.shields.io/badge/LightGBM-gray?style=for-the-badge)](https://lightgbm.readthedocs.io/en/latest/index.html) , [![Optuna](https://img.shields.io/badge/Optuna-white?style=for-the-badge)](https://optuna.org/)
+-  WebAPI Hosting: [![Flask](https://img.shields.io/badge/flask-%23000.svg?style=for-the-badge&logo=flask&logoColor=white)](https://flask.palletsprojects.com/en/3.0.x/) , [![Render](https://img.shields.io/badge/Render-%46E3B7.svg?style=for-the-badge&logo=render&logoColor=white)](https://render.com/)
+- Editores & IDEs : [![Jupyter Notebook](https://img.shields.io/badge/jupyter-%23FA0F00.svg?style=for-the-badge&logo=jupyter&logoColor=white)](!https://jupyter.org/) , [![Visual Studio Code](https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white)](!https://code.visualstudio.com/)
+- Versionamento de Código: [![Git](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white)](!https://git-scm.com/) , [	![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)](!https://github.com/)
 - [Análise Exploratória de Dados](!https://www.ibm.com/br-pt/cloud/learn/exploratory-data-analysis)
 
 
-# 13.0 Contatos
+# 12.0 CONTATOS
 
 ___
 
