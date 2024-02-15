@@ -13,7 +13,9 @@ _A demonstração detalhada do código pode ser encontrada [neste link.](https:/
 ___
 
 Insurance All Co. é uma empresa que trabalha com venda de assinaturas referentes à planos de seguridade, com especialização no setor da saúde.
+
 Um seguro de saúde é um contrato o qual a empresa se compromete a prover compensações financeiras em casos de doenças, dano específico ou morte por parte do contratante, sob o retorno do pagamento de um prêmio pré-especificado. Esse prêmio é a soma em dinheiro que o cliente deve pagar regularmente para a empresa para ter direito ao serviço.
+
 Visando aumentar a rentabilidade do serviço e a fidelidade de adesão de seus clientes, a empresa analisa a possibilidade de oferecer um novo produto: A _venda cruzada (cross-selling)_ dos seguros de saúde já ofertados em conjunto com a aquisição de planos de seguridade de automóvel, motivando a contratação de um cientista de dados para auxiliar o time de negócios no curso da implementação dessa nova proposta.
 
 __*Este é um projeto fictício. A empresa, o contexto e as perguntas de negócios não são reais.__
